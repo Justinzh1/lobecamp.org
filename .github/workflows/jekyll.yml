@@ -38,4 +38,4 @@ jobs:
       # mirror -R uploads files to the folder to the FTP server
       # timeout and max-tries set to make it stop when the upload doesn't work instead of retrying
       run: |
-        lftp ftp://$ftp_username:$ftp_password@$ftp_location  -e "set cmd:at-exit; set net:timeout 30; set net:max-retries 3; mirror --verbose --no-perms -R _prod_site //; bye"
+        lftp ftp://$ftp_username:$ftp_password@$ftp_location  -e "set cmd:at-exit; set net:timeout 30; set net:max-retries 3; mirror --verbose --no-perms -R _prod_site $ftp_path; bye"
